@@ -1,10 +1,10 @@
 const currentCubeSide = document.getElementById("rubiksCube");
 
-let c = document.getElementById("rubiksCube");
-let ctx = c.getContext("2d");
-ctx.beginPath();
-ctx.rect(0, 0, 350, 350);
-ctx.stroke();
+let canvasCurrentCubeSide = currentCubeSide.getContext("2d");
+canvasCurrentCubeSide.beginPath();
+canvasCurrentCubeSide.rect(0, 0, 350, 350);
+canvasCurrentCubeSide.stroke();
+
 
 const cube  = [1, 2, 3, 4, 5, 6];
 
