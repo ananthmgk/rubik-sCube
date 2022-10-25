@@ -1,63 +1,52 @@
-function leftOperation(cube) {
-  cube.splice(4,0,cube[0]);
-  cube.shift();
-  return cube;
+const currentCubeSide = document.getElementById("rubiksCube");
+
+let c = document.getElementById("rubiksCube");
+let ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.rect(0, 0, 350, 350);
+ctx.stroke();
+
+const cube  = [1, 2, 3, 4, 5, 6];
+
+let lastFrontFace = -1;
+
+function setface() {
+  const currentFrontFace = cube[0];
+  if (lastFrontFace !== -1) {
+      currentCubeSide.classList.remove(`face${lastFrontFace}`);
+  }
+  currentCubeSide.classList.add(`face${currentFrontFace}`);
+  lastFrontFace = currentFrontFace;
 }
 
-console.log(leftOperation(['W','O','Y','R','G','B']));
+function leftOperation(cube) {
+  cube.splice(3,0,cube.shift());
+  setface();
+}
 
 function rightOperation(cube) {
-  cube.splice(0,0,cube[3]);
-  cube.splice(4,1)
-  return cube;
+  cube.splice(0,0,cube.splice(3,1)[0]);
+  setface();
+}
+  
+function topOperation(cube) {
+  swap(cube, 2, 5);
+  swap(cube, 2, 0);
+  swap(cube, 2, 4);
+  setface();
+}
+  
+function swap(arr, i, j) {
+  [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 
-console.log(rightOperation(['W','O','Y','R','G','B']));
-
-
-function topOperatiom(cube) {
-  let cubeCopy = cube.slice(0); 
-  let newArr  = [];
-  for(let c of cube) {
-      if(c === cube[0]) {
-          newArr.push(cubeCopy[0] = cubeCopy[5]);
-      }
-      else if(c === cube[4]) {
-          newArr.push(cube[4] = cube[0]);
-      }
-      else if(c === cube[2]) {
-          newArr.push(cubeCopy[2] = cubeCopy[4]);
-      }
-      else if(c === cube[5]) {
-          newArr.push(cube[5] = cube[2]);
-      }
-      else newArr.push(c);
-  }
-  return newArr;
+function bottomOperation(cube) {
+  swap(cube, 2, 4);
+  swap(cube, 2, 0);
+  swap(cube, 2, 5);
+  setface();
 }
 
-console.log(topOperatiom(['W','O','Y','R','G','B']));
-
-
-function bottomOperatiom(cube) {
-  let cubeCopy = cube.slice(0); 
-  let newArr  = [];
-  for(let c of cube) {
-      if(c === cube[5]) {
-          newArr.push(cube[5] = cube[0]);
-      }
-      else if(c === cube[0]) {
-          newArr.push(cubeCopy[0] = cubeCopy[4]);
-      }
-      else if(c === cube[4]) {
-          newArr.push(cube[4] = cube[2]);
-      }
-      else if(c === cube[2]) {
-          newArr.push(cubeCopy[2] = cubeCopy[5]);
-      }
-      else newArr.push(c);
-  }
-  return newArr;
+function swap(arr, i, j) {
+  [arr[i], arr[j]] = [arr[j], arr[i]];
 }
-
-console.log(bottomOperatiom(['W','O','Y','R','G','B']));
