@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div><h1 id="topic">rubik's cube</h1></div>
+
+    <canvas id="rubiksCube" class="cube" width="350" height="350" style="border:2px solid black;">
+    </canvas>
+    
+    <!-- <div id="rubiksCube" class="cube"></div> -->
+
+    <div id="btnContainer" class="btnContainer">
+        <div id="btn-left" class="btn left" name="btn-left" onclick="leftOperation(cube)">Left</div>
+        <div id="btn-right" class="btn right" name="btn-right" onclick="rightOperation(cube)">Right</div>
+        <div id="btn-top" class="btn top" name="btn-top" onclick="topOperation(cube)">Top</div>
+        <div id="btn-bottom" class="btn bottom" name="btn-bottom" onclick="bottomOperation(cube)">Bottom</div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
