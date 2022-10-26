@@ -5,16 +5,20 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#topic {
+    margin-left: 25rem;
+}
+
 .cube {
-    margin-top: 40px;
-    margin-left: 80px;
+    margin-top: 7vh;
+    margin-left: 27rem;
     background-color: white;
     border-radius: 7px;
 }
 
 #btnContainer {
     margin-top: 60px;
-    margin-left: 80px;
+    margin-left: 27rem;
     height: 50px;
     width: 350px;
     position: absolute;
@@ -75,7 +79,7 @@ body {
     background-color: blue;
 }
 
-@media (max-width:600px) {
+@media (max-width:900px) {
     .cube {
         margin-top: 40px;
         margin-left: 30px;
@@ -84,6 +88,12 @@ body {
         width: 290px;
         height: 290px;
     }
+
+    
+    #topic {
+        margin-left: 0%;
+    }
+
 
     #btnContainer {
         margin-top: 60px;
@@ -144,6 +154,10 @@ body {
         border-radius: 7px;
         width: 290px;
         height: 290px;
+    }
+
+    #topic {
+        margin-left: 0%;
     }
 
     #btnContainer {
